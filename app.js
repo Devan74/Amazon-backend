@@ -9,21 +9,24 @@ require("./db/conn");
 const router = require("./routes/router");
 const products = require("./models/productsSchema");
 const jwt = require("jsonwebtoken");
-
+const cors = require("cors");
 
 // middleware
 app.use(express.json());
 app.use(cookieParser(""));
-
+app.use(cors({
+    origin: '*',
+    credentials: true
+}));
 app.use(router);
 // app.get("/",(req,res)=>{
 //     res.send("your server is running");
 // });
 
 
-if(process.env.NODE_ENV == "production"){
-    app.use(express.static("client/build"));
-}
+// if(process.env.NODE_ENV == "production"){
+//     app.use(express.static("client/build"));
+// }
 
 app.listen(port,()=>{
     console.log(`your server is running on port ${port} `);

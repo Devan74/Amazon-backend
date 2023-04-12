@@ -47,7 +47,7 @@ router.post("/register", async (req, res) => {
                 fname, email, mobile, password, cpassword
             });
 
-            // yaha pe hasing krenge
+            // hasing 
 
             const storedata = await finaluser.save();
             // console.log(storedata + "user successfully added");
