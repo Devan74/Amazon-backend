@@ -14,10 +14,7 @@ const cors = require("cors");
 // middleware
 app.use(express.json());
 app.use(cookieParser(""));
-app.use(cors({
-    origin: '*',
-    credentials: true
-}));
+app.use(cors());
 app.use(router);
 // app.get("/",(req,res)=>{
 //     res.send("your server is running");
